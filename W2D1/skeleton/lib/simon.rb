@@ -10,11 +10,16 @@ class Simon
   end
 
   def play
-
+    until @game_over
+      take_turn
+    end
   end
 
   def take_turn
-
+    show_sequence
+    require_sequence
+    round_success_message
+    @sequence_length += 1
   end
 
   def show_sequence
