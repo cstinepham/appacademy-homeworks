@@ -26,7 +26,8 @@ class Simon
   end
 
   def add_random_color
-
+    random_color = COLORS.sample
+    seq << random_color
   end
 
   def round_success_message
