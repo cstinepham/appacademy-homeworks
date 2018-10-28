@@ -29,7 +29,8 @@ class Simon
   end
 
   def require_sequence
-
+    puts "Please repeat the sequence back: "
+    user_sequence = gets.chomp
   end
 
   def add_random_color
