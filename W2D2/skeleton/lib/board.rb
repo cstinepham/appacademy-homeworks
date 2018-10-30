@@ -19,6 +19,7 @@ class Board
   end
 
   def make_move(start_pos, current_player_name)
+    @cups[start_pos]
   end
 
   def next_turn(ending_cup_idx)
@@ -34,8 +35,20 @@ class Board
   end
 
   def one_side_empty?
+    return true if @cups[6].empty? || @cups[13].empty?
+    return false
   end
 
   def winner
+  end
+
+  def [](pos)
+    row,col = pos
+    @cups[row][col]
+  end
+
+  def []=(pos, value)
+    row,col = pos
+    @cups[row][col] = value
   end
 end
