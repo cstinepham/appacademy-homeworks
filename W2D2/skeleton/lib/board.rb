@@ -6,7 +6,7 @@ class Board
     @cups.each_with_index do |cup, i|
       4.times{cup << :stone} if i != 6 && i != 13
     end
-    
+
   end
 
   def place_stones
@@ -20,12 +20,14 @@ class Board
   end
 
   def make_move(start_pos, current_player_name)
-    stones = @cups[start_pos]
-    @cups[start_pos] = nil
-    i = 0
-    until stones.empty?
-      @cups[start_pos+i] << :stone
-      stones.pop
+    if valid_move?(start_pos)
+      stones = @cups[start_pos]
+      @cups[start_pos] = nil
+      i = 0
+      until stones.empty?
+        @cups[start_pos+i] << :stone
+        stones.pop
+      end
     end
   end
 
