@@ -44,14 +44,11 @@ class Board
 
   def next_turn(ending_cup_idx)
     if ending_cup_idx == 6 || ending_cup_idx == 13
-      # ended on store -- get to choose where to start again
       return :prompt
     elsif @cups[ending_cup_idx].count == 1
-      # ended on empty cup -- switches players' turns
       return :switch
     else
-      # ended on cup with stones in it -- automatically starts there
-      ending_cup_idx
+      return ending_cup_idx
     end
   end
 
