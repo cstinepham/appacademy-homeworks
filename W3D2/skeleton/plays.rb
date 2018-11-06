@@ -22,14 +22,35 @@ class Play
 
 
   def self.find_by_title(title)
-    PlayDBConnection.instance.execute(<<-SQL, title)
+    result = PlayDBConnection.instance.execute(<<-SQL, title)
       SELECT
         *
       FROM
         plays
+      JOIN
       WHERE
         title = ?
     SQL
+    return nil if result.length == 0
+    Play.new(result.first)
+  end
+  #Play::find_by_playwright(name)
+
+  def self.find_by_playwright(name)
+    plays = PlayDBConnection.instance.execute(<<-SQL, name)
+      SELECT
+        *
+      FROM
+        plays
+      JOIN playwrights
+      ON plays.playwright_id = playwrights.id
+      WHERE
+        playwrights.name = ?
+    SQL
+    return nil if plays.length == 0
+    result = []
+    plays.each {|play| result << play}
+    result
   end
 
   def initialize(options)
