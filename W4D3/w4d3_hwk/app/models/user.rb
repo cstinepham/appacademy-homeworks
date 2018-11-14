@@ -7,4 +7,25 @@ class User < ApplicationRecord
 
   attr_reader :password
 
+  def self.find_by_credentials
+
+  end
+
+  def self.generate_sessionOtken
+
+  end
+
+  def reset_session_token!
+
+  end
+
+  def ensure_session_token
+    
+  end
+
+  def password=
+
+  end
+
+
 end
