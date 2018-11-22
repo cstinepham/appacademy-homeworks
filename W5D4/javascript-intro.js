@@ -1,8 +1,3 @@
-// Write a function that takes three strings - a verb, an adjective, and a noun - uppercases and interpolates them into the sentence "We shall VERB the ADJECTIVE NOUN". Use ES6 template literals.
-//
-// For example,
-// > madLib('make', 'best', 'guac');
-// "We shall MAKE the BEST GUAC."
 
 function madLib(verb, adjective, noun) {
   return `We shall ${verb.toUpperCase()} the ${adjective.toUpperCase()} ${noun.toUpperCase()}.`
@@ -10,4 +5,14 @@ function madLib(verb, adjective, noun) {
 
 function isSubstring(searchString, subString) {
   searchString.includes(subString);
+}
+
+function fizzBuzz(array) {
+  const fizzBuzzArr = [];
+  array.forEach(el =>
+    if ((el % 3 === 0 && el % 5 != 0) || (el % 3 != 0 && el % 5 === 0)) {
+      fizzBuzzArr.push(el)
+    }
+  );
+  return fizzBuzzArr;
 }
