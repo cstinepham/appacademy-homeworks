@@ -12,3 +12,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('content');
   ReactDOM.render(<Root store={store} />, root);
 });
+
+function addLoggingToDispatch(store) {
+  let storeDispatch = store.dispatch;
+  return (action) => {
+    console.log(store.getState());
+    console.log(action);
+    storeDispatch(action);
+    console.log(store.getState());
+  };
+}
