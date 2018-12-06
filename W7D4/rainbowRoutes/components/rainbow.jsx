@@ -12,9 +12,12 @@ import Violet from './violet';
 
 class Rainbow extends React.Component {
   render() {
-    return <div>
+    return (<div>
         <h1>Rainbow Router!</h1>
-        {/* Your links should go here */}
+        <NavLink to='/red' >Red</NavLink>
+        <NavLink to='/green' >Green</NavLink>
+        <NavLink to='/blue' >Blue</NavLink>
+        <NavLink to='/violet' >Violet</NavLink>
 
         <div id="rainbow">
           <Route path="/red" component={Red} />
@@ -22,7 +25,7 @@ class Rainbow extends React.Component {
           <Route path="/blue" component={Blue} />
           <Route path="/violet" component={Violet} />
         </div>
-      </div>;
+      </div>);
   }
 };
 
